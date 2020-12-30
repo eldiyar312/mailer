@@ -1,0 +1,146 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Quattuor Mailer v1.14</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="alternate" type="application/json+oembed" href="https://codepen.io/api/oembed?url=https://codepen.io/joezimjs/pen/yPWQbd&format=json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <style type="text/css">
+        body {
+            zoom: 100%;
+            margin: auto;
+        }
+        .mailer-menu {
+            margin: 10px;
+            font-size: 150%;
+        }
+        .recipient-groups-class {
+            width: 20%;
+            margin-left: 1%;
+            padding: 5px;
+        }
+        .control-buttons {
+            margin-left: 1%;
+            padding: 5px;
+        }
+        .mail-addresses-from-group{
+            width: 30%;
+            margin-left: 1%;
+            padding: 5px;
+            display: block;
+        }
+        .groupsedit-block {
+            width: 30%;
+            margin-left: 1%;
+            padding: 5px;
+        }
+        .addusermail{
+            width: 50%;
+            margin-left: 2%;
+        }
+        .wsstate-class{
+            width: 60%;
+            margin-left: 1%;
+            font-size: 12pt;
+            color: red;
+        }
+    </style>
+</head>
+<script src="js/groups.js" type="text/javascript"></script>
+<div class="mailer-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/">Рассылки</a>
+                <a class="nav-item nav-link" href="/history.html">История</a>
+                <a class="nav-item nav-link active" href="/groups.html">Группы рассылки<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/templates.html">Темплейты</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="wsstate-class">
+    <p id="wsconnectioninfo"></p>
+</div>
+
+<div id="recipient-groups" class="recipient-groups-class">
+</div>
+
+<div class="control-buttons">
+    <button type="button" class="btn btn-outline-primary" onclick="EditGroupsInterface()">Добавить группу</button>
+    <button type="button" class="btn btn-outline-danger" onclick="GroupRemove()">Удалить группу</button>
+</div>
+
+<div id="groupsedit-block" class="groupsedit-block">
+</div>
+
+<div id="groupEditResponse" class="groupsedit-block">
+    <p id="groupeditresult"></p>
+</div>
+
+<div id="mails-info" class="mail-addresses-from-group">
+</div>
+
+<div class="addusermail">
+    <div class="form-row align-items-center">
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">E-mail адрес:</div>
+                </div>
+                <input type="email" class="form-control" id="addedUserMail" placeholder="example@domain.com">
+            </div>
+        </div>
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Имя адресата:</div>
+                </div>
+                <input type="text" class="form-control" id="addedUserName" placeholder="Семён Семёныч">
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary mb-2" onclick="AddUserToGroup()">Добавить адресата в группу</button>
+        </div>
+    </div>
+</div>
+
+<div class="groupsedit-block">
+    <p id="userEditsResponse"></p>
+</div>
+
+<div class="control-buttons">
+     <button type="button" class="btn btn-danger" onclick="RemoveUser()">Удалить выбранный адрес</button>
+</div>
+
+
+
+<div id="groupmails-info" class="mail-addresses-from-group">
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        @media screen and (max-width:760px) {
+            body{ margin:0!important; }
+            .header{ padding:20px 16px!important; border-radius:0!important; border-style: none!important;}
+            .logo-text{ font-size:12px!important; }
+            .box{ padding:20px 16px!important; border-radius:0!important; }
+            .table td + td{ display:none; }
+            .footer{ padding:15px 16px!important; }
+			.tableunit{ display:block!important; width:100%!important;}
+			.tableunitimg{ display:block!important; width:100%!important; text-align:center!important;}
+	    }
+    </style>
+</head>
+<body style="background-color:#fff;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;margin-top:20px;margin-bottom:0;margin-right:0;margin-left:0;font-style:normal;font-variant:normal;font-weight:normal;font-size:12px;font-family:'Helvetica Neue', Arial, sans-serif;line-height:normal;color:#333;" >
+    <!--[if mso]><center><table cellpadding="0" cellspacing="0" border="0"><tr><td width="760"><![endif]-->
+    <div style="max-width:760px;width:100%;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;" >
+        <table cellpadding="0" cellspacing="0" border="0" style="width:100%;" >
+            <tr>
+                <td>
+                    <div  class="header" style="background-color:#2C3042;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-radius:16px 16px 0 0;padding-top:26px;padding-bottom:26px;padding-right:28px;padding-left:28px;" >
+                        <table cellpadding="0" cellspacing="0" border="0" style="width:100%;" >
+                            <tr>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0" border="0" style="width:100%;" >
+                                        <tr>
+                                            <td>
+                                                <table cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                    <td style="padding-right:14px;" >
+                                                        <a href=""><img
+                                                            src="https://mailer.quattuor.ru/static/templates/minoboron/logo1.png"
+                                                            alt=""
+                                                            width="64"
+                                                        ></a>
+                                                    </td>
+                                                    <td  class="logo-text" style="font-size:16px;font-weight:bold;color:#787F98;" >
+                                                        Министерство промышленности и&nbsp;торговли Российской&nbsp;Федерации
+                                                    </td>
+                                                </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div  class="box" style="background-color:#F3F7FB;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-radius:0 0 16px 16px;padding-top:26px;padding-bottom:26px;padding-right:28px;padding-left:28px;" >
+                        <table cellpadding="0" cellspacing="0" border="0" style="width:100%;" >
+						{{range .NewsLettersBlocks}}
+                            <tr>
+                                <td>
+									<h1 style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;margin-top:0;margin-bottom:32px;margin-right:0;margin-left:0;font-weight:bold;font-size:32px;color:#001689;text-align:center;" >{{ .BlockHeader }}</h1>
+									{{ range .NewsLetters }}
+									{{if .Image }}
+                                    <table cellpadding="0" cellspacing="0" border="0"  class="table" style="width:100%;max-width:760px;" >
+                                        <tr>
+                                            <td style="padding-bottom:30px;vertical-align:top;text-align:justify;" class="tableunit">
+                                                <p style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;margin-top:0;margin-bottom:6px;margin-right:0;margin-left:0;font-weight:bold;font-size:20px;" >{{ .Header }}</p>
+                                                <p style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;margin-top:0;margin-bottom:4px;margin-right:0;margin-left:0;font-size:12px;color:#828282;" >{{ .Annotation }}</p>
+                                                <a href="{{ .Link }}" style="font-weight:bold;font-size:12px;text-decoration:none;color:#00AF91;" >
+                                                    Подробнее
+                                                    <img
+                                                        src="https://mailer.quattuor.ru/static/templates/minoboron/arrow-green.png"
+                                                        alt=""
+                                                        width="7" style="display:inline-block;vertical-align:middle;margin-top:0;margin-bottom:2px;margin-right:0;margin-left:4px;" >
+                                                </a>
+                                            </td>
+                                            <td style="padding-top:0;padding-bottom:30px;padding-right:0;padding-left:20px;vertical-align:top;" class="tableunitimg">
+                                                <a href=""><img
+                                                    src="{{ .Image | safe }}"
+													width="160px"
+													height="120px"
+                                                    alt="" style="border-width:0;border-color:#F3F7FB;" ></a>
+                                            </td>
+                                        </tr>
+									</table>
+									{{ else }}
+									<table cellpadding="0" cellspacing="0" border="0"  class="table" style="width:100%;" >
+                                        <tr>
+                                            <td style="padding-bottom:30px;vertical-align:top;text-align:justify;" class="tableunit">
+                                                <p style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;margin-top:0;margin-bottom:6px;margin-right:0;margin-left:0;font-weight:bold;font-size:20px;" >{{ .Header }}</p>
+                                                <p style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;margin-top:0;margin-bottom:4px;margin-right:0;margin-left:0;font-size:12px;color:#828282;" >{{ .Annotation }}</p>
+                                                <a href="{{ .Link }}" style="font-weight:bold;font-size:12px;text-decoration:none;color:#00AF91;" >
+                                                    Подробнее
+                                                    <img
+                                                        src="https://mailer.quattuor.ru/static/templates/minoboron/arrow-green.png"
+                                                        alt=""
+                                                        width="7" style="display:inline-block;vertical-align:middle;margin-top:0;margin-bottom:2px;margin-right:0;margin-left:4px;" >
+                                                </a>
+                                            </td>
+                                        </tr>
+									</table>
+									{{ end }}
+									{{ end }}
+                                    <tr>
+                                        <td colspan="2" style="padding-bottom:40px;" >
+                                            <a href="{{ .BlockLink }}" style="display:inline-block;padding-top:0;padding-bottom:0;padding-right:35px;padding-left:35px;border-radius:18px;background-color:#585F79;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;font-size:12px;line-height:35px;color:#fff;text-decoration:none;" >Еще больше новостей</a>
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+							{{ end }}
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td  class="footer" style="padding-top:15px;padding-bottom:15px;padding-right:28px;padding-left:28px;" >
+                    <div style="float:left;padding-top:15px;padding-bottom:15px;padding-right:30px;padding-left:0;" >
+                        <a href="http://www.phoenix.media"><img
+                            src="https://mailer.quattuor.ru/static/templates/minoboron/phoenix.png"
+                            alt=""
+                            width="205"
+                        ></a>
+                    </div>
+                    <div style="float:right;padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0;text-align:right;" >
+                        <a href="http://www.phx.media/" style="display:inline-block;vertical-align:middle;margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:38px;color:#787F98;white-space:nowrap;" >www.phx.media</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--[if mso]></td></tr></table></center><![endif]-->
+</body>
+</html>

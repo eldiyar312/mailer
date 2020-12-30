@@ -1,0 +1,23 @@
+stages:
+  - deploy
+
+deploy:
+    stage: deploy
+    script:
+    - go get "github.com/gorilla/mux"
+    - go get "github.com/gorilla/websocket"
+    - go get "gopkg.in/alexcesaro/quotedprintable.v2"
+    - go get "github.com/lib/pq"
+    - go get "github.com/disintegration/imaging"
+    - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o mailerapp .
+    - sudo systemctl stop mailerapp
+    - sudo rm -f /opt/mailer/mailerapp
+    - sudo rm -rf /opt/mailer/web
+    - sudo cp -r web /opt/mailer/
+    - sudo cp mailerapp /opt/mailer/
+    - sudo chown -R mailer:mailer /opt/mailer
+    - sudo systemctl start mailerapp
+    tags:
+    - mailer
+    only:
+    - master
